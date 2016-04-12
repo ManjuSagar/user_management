@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
    root 'home#home'
+  get "/employees/employee_task/:?" => 'employees#show'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
   post "/tasks/get_engaged_list" => 'tasks#get_engaged_list'
   get "/tasks/manager_task/:?" => 'tasks#manager_task'
   post "users" => "employees#create"
+
 
   # Example resource route with options:
   #   resources :products do

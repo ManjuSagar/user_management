@@ -1,17 +1,18 @@
 
 <div class="container">
   <%= form_for @emply, url: employees_path do |t| %>
-      <%= t.label :first_name, "Name:" %>
+      <%= t.label :first_name, "First Name:" %>
       <%= t.text_field :first_name %><br />
 
-      <%= t.label :last_name, "Description:" %>
+      <%= t.label :last_name, "Last Name:" %>
       <%= t.text_field :last_name %><br />
 
       <%= t.label :email, "Email:" %>
       <%= t.text_field :email %><br />
 
       <%= t.label :password, "Passord" %>
-      <%= t.text_field :password %><br />
+      <%= t.password_field :password %><br />
+
       <%= t.submit %>
   <% end %>
 </div>

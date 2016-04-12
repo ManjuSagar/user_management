@@ -1,0 +1,17 @@
+<div id="date-popover" class="popover top">
+  <div id="date-popover-content" class="popover-content"></div>
+</div>
+
+<div id="my-calendar-employee"></div>
+
+<!-- initialize the calendar on ready -->
+<script type="application/javascript">
+    $(document).ready(function () {
+        $("#my-calendar-employee").zabuto_calendar({
+            ajax: {
+                url: "/employees/employee_task/",
+                modal: true
+            }
+        });
+    });
+</script>
