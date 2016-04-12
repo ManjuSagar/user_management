@@ -1,0 +1,14 @@
+<div class="container">
+  <%= form_for @task do |t| %>
+      <%= t.label :title, "Name:" %>
+      <%= t.text_field :title %><br />
+
+      <%= t.label :description, "Description:" %>
+      <%= t.text_area :description %><br />
+
+      <%= t.label :assigned_to, "Employee:" %>
+      <%= t.collection_select(:assigned_to, User.all, :id, :first_name) %><br/>
+
+      <%= t.submit %>
+  <% end %>
+</div>
