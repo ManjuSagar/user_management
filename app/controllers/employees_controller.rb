@@ -4,7 +4,7 @@ class EmployeesController < ApplicationController
   end
 
   def new
-    @employee = User.new
+    @emply = User.new
   end
 
   def create

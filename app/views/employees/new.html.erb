@@ -1,6 +1,7 @@
 <div class="container" style="margin-top: 50px;">
   <form role="form">
-  <%= form_for @employee, url: employees_path, html: { method: :post } do |e| %>
+    <%#= form_tag({controller: "load", action: "new"}, method: "post") do %>
+    <%= form_for @emply do |e|%>
       <div class="form-group">
         <%= e.label :first_name, "First Name:" %>
         <%= e.text_field :first_name %><br />

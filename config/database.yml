@@ -1,8 +1,8 @@
 development:
   adapter: postgresql
   host: localhost
-  username: sagar
-  password: sagar
+  username: msn
+  password: msn
   database: user_manegement
   reconnect: true
 

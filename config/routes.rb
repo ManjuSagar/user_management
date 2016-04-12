@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   resources :managers
   resources :employees
   resources :tasks
+ # post "users" => 'employees#create'
+  post "/tasks/get_engaged_list" => 'tasks#get_engaged_list'
+  get "/tasks/manager_task/:?" => 'tasks#manager_task'
 
   # Example resource route with options:
   #   resources :products do

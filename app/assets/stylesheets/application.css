@@ -14,6 +14,7 @@
  *= require bootstrap.css
  *= require bootstrap-responsive.css
  *= require bootstrap-responsive.min.css
+ *= require zabuto_calendar.css
  */
 
 #table-header {
