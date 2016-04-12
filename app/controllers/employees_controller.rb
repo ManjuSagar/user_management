@@ -22,7 +22,6 @@ class EmployeesController < ApplicationController
   end
 
   def create
-    puts "inside createeeeeeeeee"
     User.create(employee_params.merge!(:role=> 'employee', :password=> "test1234"))
     redirect_to :managers
   end

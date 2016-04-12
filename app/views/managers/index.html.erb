@@ -1,24 +1,8 @@
 <div class="container">
-  <div class="right">
+  <div class="pull-right" style="margin-top: 20px">
     <%=link_to "Add Employee", new_employee_path, :class=> "btn btn-primary", :style=>"margin-top: 50px"%>
     <%=link_to "Add Task", new_task_path, :class=> "btn btn-primary", :style=>"margin-top: 50px; margin-left: 20px;"%>
   </div>
-<!--<table class="table">-->
-  <!--<thead>-->
-  <!--<tr>-->
-    <!--<th class="table-header">Title</th>-->
-    <!--<th class="table-header">Description</th>-->
-  <!--</tr>-->
-  <!--</thead>-->
-  <!--<tbody>-->
-  <!--<%#@tasks.each do |task| %>-->
-      <!--<tr>-->
-        <!--<td><%#=task.title%></td>-->
-        <!--<td><%#=task.description%></td>-->
-      <!--</tr><br/>-->
-  <!--<%#end%>-->
-  <!--</tbody>-->
-<!--</table>-->
 </div>
 
 
@@ -29,55 +13,16 @@
 
 <div id="my-calendar"></div>
 
-<!-- initialize the calendar on ready -->
 <script type="application/javascript">
-//    var eventData = [
-//        {"date":"2016-04-01","badge":false,"title":"Example 1"},
-//        {"date":"2016-04-02","badge":true,"title":"Example 2"}
-//    ];
+
     $(document).ready(function () {
         $("#my-calendar").zabuto_calendar({
-//            action: function() {
-//                return myDateFunction(this.id, false);
-//            }
             ajax: {
                 url: "/tasks/manager_task/",
                 modal: true
             }
-            //data: eventData
         });
     });
-//    function myDateFunction(id, fromModal) {
-//       var date = $("#" + id).data("date");
-//       form_data = new FormData();
-//       form_data.append("date", date);
-//       console.log("aaaaaaaaaaaa");
-//       console.log(date);
-//       console.log(fromModal);
-//        $.ajax({
-//            method: "post",
-//            url: "/tasks/get_engaged_list",
-//            data: form_data,
-//            dataType: 'json',
-//            cache: false,
-//            contentType: false,
-//            processData: false,
-//            success: function (data) {
-//                $("#myModal").empty();
-//               a =  '<div class="modal-dialog"> <div class="modal-content"> <div class="modal-header"> ' +
-//                '<button type="button" class="close" data-dismiss="modal">&times;</button> <h4 class="modal-title">Engaged List</h4> </div> ' +
-//                ' <div class="modal-body">'+ data["data"] +'</div> <div class="modal-footer"> ' +
-//                '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button> </div></div></div>'
-//              console.log(data);
-//              console.log("aaaaaaaaaaaaaaaaaaa");
-//              $("#myModal").append(a);
-//              $('#myModal').modal('show');
-//            },
-//            error: function(){
-//
-//            }
-//        });
-//      };
-//    });
+
 </script>
 
