@@ -11,8 +11,6 @@ class TasksController < ApplicationController
   end
 
   def get_engaged_list
-     puts params
-     puts "aaaaaaaaaaaaaa"
      @task = User.joins(:tasks).where("tasks.assigned_by = ? and start_date = ?", current_user.id, params[:date]).collect{|x| x.first_name + " "+ x.last_name}
      respond_to do |format|
        format.json do
@@ -25,11 +23,9 @@ class TasksController < ApplicationController
 
   def show
     data = []
-    @current_month_tasks = Task.includes(:user).where(:assigned_by=> 1, :month=> params[:month], :year=> params[:year]).collect{|x| [x.start_date, x.user.first_name]}
-    #@current_month_tasks = Task.all.where(:assigned_by => current_user.id, :month=> params["month"], :year=> params["year"])
-    puts "paramssssssssssssss #{params}"
+    @current_month_tasks = Task.includes(:user).where(:assigned_by=> current_user.id, :month=> params[:month], :year=> params[:year]).group_by(&:start_date).collect {|x| [x[0], x[1].collect{|y| y.user.first_name}]}
     @current_month_tasks.each do |task|
-      data << {"date":"#{task[0]}", "badge": true, "title": "Engaged List", "body":"<p class=\"lead\">"+ task[1]+"<\/p>"}
+      data << {"date":"#{task[0]}", "badge": true, "title": "Engaged List", "body":"<p class=\"lead\">"+ task[1].uniq.join(",  ")+"<\/p>"}
     end
     respond_to do |format|
       format.json do
@@ -39,7 +35,6 @@ class TasksController < ApplicationController
   end
 
   def manager_tasks
-    puts "paramssssssssssssss #{params}"
     data = [
              {
                :date=> "2016-04-25", :badge => true, :title => "Tonight", :body => "<p class=\"lead\">Party<\/p><p>Like it's 1999.<\/p>"
