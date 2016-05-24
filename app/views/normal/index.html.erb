@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="pull-right" style="margin-top: 20px">
+    <%#=link_to "Add Employee", new_employee_path, :class=> "btn btn-primary", :style=>"margin-top: 50px"%>
+    <%=link_to "Add Task", new_task_path, :class=> "btn btn-primary", :style=>"margin-top: 50px; margin-left: 20px;"%>
+  </div>
+</div>
+
+
+
+<div id="date-popover" class="popover top">
+  <div id="date-popover-content" class="popover-content"></div>
+</div>
+
+<div id="my-calendar"></div>
+
+<script type="application/javascript">
+
+    $(document).ready(function () {
+        $("#my-calendar").zabuto_calendar({
+            ajax: {
+                url: "/normal/show_tasks/",
+                modal: true
+            }
+        });
+    });
+
+</script>

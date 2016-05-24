@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
+  #devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
+  devise_for :users
   # You can have the root of your site routed with "root"
-   root 'home#home'
+  root 'home#home'
   get "/employees/employee_task/:?" => 'employees#show'
 
   # Example of regular route:
@@ -18,10 +18,14 @@ Rails.application.routes.draw do
   resources :managers
   resources :employees
   resources :tasks
+  resources :normal
+  get "/normal/show_tasks" => 'normal#show_tasks'
  # post "users" => 'employees#create'
   post "/tasks/get_engaged_list" => 'tasks#get_engaged_list'
   get "/tasks/manager_task/:?" => 'tasks#manager_task'
   post "users" => "employees#create"
+
+
 
 
   # Example resource route with options:

@@ -16,14 +16,15 @@
           <%= t.text_area :description, :class=> "form-control", :placeholder=> "Description" %><br />
         </div>
       </div>
-
+<% unless current_user.role == 'NS'%>
       <div class="form-group">
         <%= t.label :assigned_to, "Assign to:", :class=> "col-sm-2 control-label"%>
         <div class="col-sm-10">
           <%= t.collection_select(:assigned_to, User.all, :id, :first_name) %><br/>
-          <%#= t.text_field :first_name, :class=> "form-control", :placeholder=> "First Name" %><br />
+          <%#= t.text_field :first_name, :class=> "form-control", :placeholder=> "First Name" %>
         </div>
       </div>
+ <% end %>
 
       <div class="form-group">
         <%= t.label :start_date, "Start Date:", :class=> "col-sm-2 control-label"%>

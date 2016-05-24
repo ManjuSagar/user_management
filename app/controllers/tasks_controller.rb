@@ -5,14 +5,13 @@ class TasksController < ApplicationController
   end
 
   def create
-   Task.create(task_params.merge!(:assigned_by=> current_user.id, :user_id=> task_params[:assigned_to], :year=> task_params["start_date(1i)"],
+    asign_to = task_params[:assigned_to] || current_user.id
+   Task.create(task_params.merge!(:assigned_by=> current_user.id, :user_id=> asign_to, :year=> task_params["start_date(1i)"],
                                    :month=> task_params["start_date(2i)"]))
-   redirect_to :managers
+   redirect_to (current_user.role == 'NS')? :normal_index : :managers
   end
 
   def get_engaged_list
-     puts params
-     puts "aaaaaaaaaaaaaa"
      @task = User.joins(:tasks).where("tasks.assigned_by = ? and start_date = ?", current_user.id, params[:date]).collect{|x| x.first_name + " "+ x.last_name}
      respond_to do |format|
        format.json do
