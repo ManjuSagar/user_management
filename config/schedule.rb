@@ -23,6 +23,6 @@
 
 every 1.minutes do
   #[:development].each do |envmnt|
-    runner "Task.task_to_run_at_seven_in_the_morning", :output => {error: 'log/schud.log', :standard => 'log/schud.log'}
+    runner "Task.send_message", :output => {error: 'log/schud.log', :standard => 'log/schud.log'}
   #end
 end

@@ -1,4 +1,9 @@
-<div class="container text-center" style="margin-top: 50px">
+<div class="col-md-12" style="margin-top: 100px">
+  <div class="col-md-6 col-md-offset-1">
+    <%=image_tag 'task2.jpg' %>
+  </div>
+  <div class="col-md-4 col-md-offset-1">
+<div class="container ">
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -24,9 +29,9 @@
 
   <div class="field">
     <%= f.label :first_name %><br />
-    <%= f.password_field :first_name, autocomplete: "off" %>
+    <%= f.text_field :first_name, autocomplete: "off" %>
   </div>
-
+  <br/>
   <div class="field">
     <%=f.hidden_field :role, :value=>"NS"%>
   </div>
@@ -37,4 +42,6 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+  <div class="col-md-6">
+</div>
 </div>
