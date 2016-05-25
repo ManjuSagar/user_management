@@ -1,10 +1,10 @@
 class UserMailer < ApplicationMailer
   default from: 'manjusagar.sn@gmail.com'
 
-  def task_email(task, user)
+  def task_email(user)
     @user = user
-    @task = task
+    @tasks = user.tasks
     #@url  = 'http://example.com/login'
-    mail(to: @user.email, subject: @task.start_date.to_s + "Tasks")
+    mail(to: @user.email, subject: "Todays Tasks")
   end
 end

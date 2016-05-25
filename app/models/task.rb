@@ -3,10 +3,9 @@ class Task < ActiveRecord::Base
 
   def self.task_to_run_at_seven_in_the_morning
     puts "insideeeeeeeeeeeeee"
-    tasks = Task.all.where(:start_date=> Date.today)
-    tasks.each do |task|
-      puts "inside hdgvbhfdjk"
-      UserMailer.task_email(task.user, task)
+    todays_task_users = User.includes(:tasks).where("tasks.start_date"=> Date.today)
+    todays_task_users.each do |user|
+      UserMailer.task_email(user).deliver_now
     end
   end
 end

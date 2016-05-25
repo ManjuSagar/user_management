@@ -42,11 +42,10 @@ Rails.application.configure do
       port:                 587,
       domain:               'example.com',
       user_name:            'manjusagar.sn@gmail.com',
-      password:             '',
+      password:             '9738919611',
       authentication:       'plain',
-      openssl_verify_mode: :none,
-      enable_starttls_auto: false  }
+      enable_starttls_auto: true}
 
-  # Raises error for missing translations
+  # Raises error for missing translations  service ssid    MG6d983049bfcd495b254d3f5564bbc5ff      request url https://demo.twilio.com/welcome/sms/reply/
   # config.action_view.raise_on_missing_translations = true
 end
